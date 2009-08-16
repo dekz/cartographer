@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BROWSER = new System.Windows.Forms.WebBrowser();
+            this.loadKML = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // BROWSER
+            // loadKML
             // 
-            this.BROWSER.Location = new System.Drawing.Point(283, 3);
-            this.BROWSER.MinimumSize = new System.Drawing.Size(20, 20);
-            this.BROWSER.Name = "BROWSER";
-            this.BROWSER.Size = new System.Drawing.Size(646, 467);
-            this.BROWSER.TabIndex = 0;
+            this.loadKML.Location = new System.Drawing.Point(1148, 60);
+            this.loadKML.Name = "loadKML";
+            this.loadKML.Size = new System.Drawing.Size(75, 23);
+            this.loadKML.TabIndex = 0;
+            this.loadKML.Text = "load KML";
+            this.loadKML.UseVisualStyleBackColor = true;
+            this.loadKML.Click += new System.EventHandler(this.loadKML_Click);
             // 
             // Cartographer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 723);
-            this.Controls.Add(this.BROWSER);
+            this.ClientSize = new System.Drawing.Size(1247, 639);
+            this.Controls.Add(this.loadKML);
             this.Name = "Cartographer";
             this.Text = "Cartographer";
             this.ResumeLayout(false);
@@ -53,7 +55,8 @@
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser BROWSER;
+        private System.Windows.Forms.Button loadKML;
+
     }
 }
 
