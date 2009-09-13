@@ -72,6 +72,8 @@ namespace cartographer
             ResizeGoogleControl();
             ElectorateImporter g_elecImporter = new ElectorateImporter();
             g_elecImporter.ParseXLS();
+            g_elecImporter.ParseMID("data/QLD_Federal_Electoral_Boundaries.mid");
+            g_elecImporter.ParseMIF("data/QLD_Federal_Electoral_Boundaries.mif");
         }
 
         private void ResizeGoogleControl()

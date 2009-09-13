@@ -40,7 +40,7 @@ namespace cartographer
             }
             catch
             {
-                return false;
+                Environment.Exit(0); //HAAHAHAHAHAHAHA
             }
             while (!m_ElectorateReaderMID.EndOfStream)
             {
@@ -72,7 +72,7 @@ namespace cartographer
             electorateData[electorateDataPosition] = lineSoFar;
             Electorate electorate = new Electorate();
             electorate.ID = int.Parse(electorateData[0]);
-            electorate.Name = int.Parse(electorateData[1]);
+            electorate.Name = electorateData[1];
             //numccds???????????
             electorate.Actual = int.Parse(electorateData[3]);
             electorate.Projected = int.Parse(electorateData[4]);
@@ -98,12 +98,13 @@ namespace cartographer
             {
                 //drop the first 17 lines -> irrelevant
                 m_ElectorateReaderMIF.ReadLine();
-            }
+            }   
+            int currentShape = -1;
+            int currentRegion = -1;
+            int currentPoint = -1;
             while (!m_ElectorateReaderMIF.EndOfStream)
             {
-                int currentShape = -1;
-                int currentRegion = -1;
-                int currentPoint = -1;
+
                 string line = m_ElectorateReaderMIF.ReadLine();
                 if (line[0] == 'R')
                 {
@@ -141,12 +142,13 @@ namespace cartographer
                 else if (line[0] == ' ' && line[1] == ' ' && line[2] == ' ')
                 {
                     //pen brush center
-                    if (line[5] == 'C')
+                    if (line[4] == 'C')
                     {
                         m_ElectorateDataMIF[currentRegion].Boundaries[currentShape].center = PointParse(line.Substring(11));
+
+                        currentPoint = -1;
+                        currentShape = -1;
                     }
-                    currentPoint = -1;
-                    currentShape = -1;
 
                 }
                 else

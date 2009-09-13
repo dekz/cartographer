@@ -9,5 +9,11 @@ namespace cartographer
     {
         public List<Vector2> points;
         public Vector2 center;
+
+        public Shape() 
+        {
+            points = new List<Vector2>();
+            center = new Vector2();
+        }
     }
 }

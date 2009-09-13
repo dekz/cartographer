@@ -8,7 +8,7 @@ namespace cartographer
     public class Electorate
     {
         private int m_ID;
-        private int m_name;
+        private string m_name;
         private string m_division;
         private string m_state;
         private List<Shape> m_boundaries;
@@ -27,7 +27,7 @@ namespace cartographer
         private int m_ALP2PVotes;
 
         public int ID { get { return m_ID; } set { m_ID = value; } }
-        public int Name { get { return m_name; } set { m_name = value; } }
+        public string Name { get { return m_name; } set { m_name = value; } }
         public string Division { get { return m_division; } set { m_division = value; } }
         public string State { get { return m_state; } set { m_state = value;} }
         public List<Shape> Boundaries { get { return m_boundaries; } set { m_boundaries = value; } }
