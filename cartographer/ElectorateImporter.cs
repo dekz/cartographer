@@ -221,9 +221,26 @@ namespace cartographer
             DataSet ds = new DataSet();
             _allData.Fill(ds);
             Console.Out.WriteLine("fuck");
-            Console.Out.WriteLine(ds.Tables[0].Rows[0].ToString());
-            
-            
+            var table = ds.Tables[0];
+            foreach (DataRow row in table.Rows)
+            {
+                //Console.Out.WriteLine(row.ItemArray);
+
+                List<Object> _param = new List<Object>();
+                foreach (var thing in row.ItemArray)
+                {
+                    Console.Out.WriteLine(thing); 
+                   
+
+                    
+                   
+                }
+
+                Electorate _electorate = new Electorate();
+
+
+
+            }
 
 
           
