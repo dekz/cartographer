@@ -220,7 +220,7 @@ namespace cartographer
         {
 
             string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
-                                      Data Source=\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
+                                      Data Source=|DataDirectory|\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
                                       ""Excel 8.0;HDR=YES;""";
 
             OleDbConnection connection = new OleDbConnection(connectionString);
