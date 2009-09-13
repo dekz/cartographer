@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+<<<<<<< HEAD
 using System.IO;
+=======
+using Microsoft.Excel.Interop;
+>>>>>>> commit before pulling
 
 namespace cartographer
 {
@@ -90,6 +94,8 @@ namespace cartographer
         //STAGE TWO
         public bool ParseXLS()
         {
+           
+            
 
         }
 
