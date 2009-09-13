@@ -9,7 +9,8 @@ namespace cartographer
     {
         private int m_ID;
         private int m_name;
-        private object m_attribute1;
+        private string m_division;
+        private string m_state;
         private Vector2 m_boundaries;
         private int m_actual;
         private int m_projected;
@@ -27,7 +28,8 @@ namespace cartographer
 
         public int ID { get { return m_ID; } set { m_ID = value; } }
         public int Name { get { return m_name; } set { m_name = value; } }
-        public object Attribute1 { get { return m_attribute1; } set { m_attribute1 = value; } }
+        public string Attribute1 { get { return m_division; } set { m_division = value; } }
+        public string m_state { get { return m_state; } set { m_state = value;} }
         public Vector2 Boundaries { get { return m_boundaries; } set { m_boundaries = value; } }
         public int Actual { get { return m_actual; } set { m_actual = value; } }
         public int Projected { get { return m_projected; } set { m_projected = value; } }
