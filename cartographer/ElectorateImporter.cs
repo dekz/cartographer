@@ -137,6 +137,9 @@ namespace cartographer
                 }
                 else if (line[0] == ' ' && line[1] == ' ' && line[2] == ' ')
                 {
+                    if (line[5] == 'C')
+                    {
+                    }
                     //pen brush center
                 }
                 else
@@ -146,6 +149,11 @@ namespace cartographer
                 
             }
             return true; //cos it so works
+        }
+
+        private Vector2 PointParse(string line)
+        {
+
         }
 
         protected bool ParseLineMIF(string line)
