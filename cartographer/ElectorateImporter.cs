@@ -230,10 +230,7 @@ namespace cartographer
                 foreach (var thing in row.ItemArray)
                 {
                     Console.Out.WriteLine(thing); 
-                   
-
                     
-                   
                 }
 
                 Electorate _electorate = new Electorate();
