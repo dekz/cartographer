@@ -50,5 +50,19 @@ namespace cartographer
         {
             m_boundaries = new List<Shape>();
         }
+
+        public Electorate(List<String> a_param)
+        {
+            this.m_division = (string)a_param[0];
+            this.m_state = (string)a_param[1];
+            this.m_ALPVotes = System.Convert.ToInt32(a_param[2], 10);
+            this.m_LPVotes = System.Convert.ToInt32(a_param[3], 10);
+            this.m_NPVotes = System.Convert.ToInt32(a_param[4], 10);
+            this.m_DEMVotes = System.Convert.ToInt32(a_param[5], 10);
+            this.m_GRNVotes = System.Convert.ToInt32(a_param[6], 10);
+            this.m_OTHVotes = System.Convert.ToInt32(a_param[7], 10);
+            this.m_LNP2PVotes = System.Convert.ToInt32(a_param[8], 10);
+            this.m_ALP2PVotes = System.Convert.ToInt32(a_param[9], 10);
+        }
     }
 }

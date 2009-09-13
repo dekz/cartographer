@@ -226,15 +226,24 @@ namespace cartographer
             {
                 //Console.Out.WriteLine(row.ItemArray);
 
-                List<Object> _param = new List<Object>();
+                List<String> _param = new List<String>();
                 foreach (var thing in row.ItemArray)
                 {
-                    Console.Out.WriteLine(thing); 
-                    
+                    if (thing.ToString().Length != 0)
+                    {
+                        Console.Out.WriteLine(thing);
+                        _param.Add(thing.ToString());
+                    }
                 }
 
-                Electorate _electorate = new Electorate();
-
+                foreach (String _check in _param)
+                {
+                    if (_check != null)
+                    {
+                        Electorate _electorate = new Electorate(_param);
+                    }
+                }
+                
 
 
             }
