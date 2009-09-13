@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-<<<<<<< HEAD
 using System.IO;
-=======
-using Microsoft.Excel.Interop;
->>>>>>> commit before pulling
 
 namespace cartographer
 {
@@ -94,7 +90,34 @@ namespace cartographer
         //STAGE TWO
         public bool ParseXLS()
         {
-           
+           string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
+                                      Data Source=\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
+                                      ""Excel 8.0;HDR=YES;""";
+
+            DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.OleDb");
+
+            using (DbConnection connection = factory.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                // Cities$ comes from the name of the worksheet
+                command.CommandText = "SELECT ID,City,State FROM [Cities$]";
+
+                connection.Open();
+
+                using (DbDataReader dr = command.ExecuteReader())
+                  {
+                     while (dr.Read())
+                      {
+                         Debug.WriteLine(dr["ID"].ToString());
+                      }
+                  }
+    }
+}
+
+
             
 
         }
