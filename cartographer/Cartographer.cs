@@ -15,7 +15,7 @@ namespace cartographer
     public partial class Cartographer : Form
     {
         public EARTHLib.ApplicationGE ge = null; //new ApplicationGEClass();
-
+        public List<Electorate> m_Electorates = null;
         #region COM Hacks
 
         [DllImport("user32.dll")]
@@ -65,6 +65,7 @@ namespace cartographer
 
         public Cartographer()
         {
+            m_Electorates = new List<Electorate>();
             ge = new ApplicationGEClass();
             ShowWindowAsync(ge.GetMainHwnd(), 0);
             InitializeComponent();
@@ -74,6 +75,7 @@ namespace cartographer
             g_elecImporter.ParseXLS();
             g_elecImporter.ParseMID("data/QLD_Federal_Electoral_Boundaries.mid");
             g_elecImporter.ParseMIF("data/QLD_Federal_Electoral_Boundaries.mif");
+            m_Electorates = g_elecImporter.MergeData();
         }
 
         private void ResizeGoogleControl()

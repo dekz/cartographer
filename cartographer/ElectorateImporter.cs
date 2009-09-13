@@ -14,7 +14,8 @@ namespace cartographer
     {
         private List<Electorate> m_ElectorateDataMID;
         private List<Electorate> m_ElectorateDataMIF;
-        private List<Electorate> m_ElectorateDataXLS;        
+        private List<Electorate> m_ElectorateDataXLS;
+        private List<Electorate> m_ElectorateData;
 
         private StreamReader m_ElectorateReaderMID;
         private StreamReader m_ElectorateReaderMIF;
@@ -26,7 +27,7 @@ namespace cartographer
             m_ElectorateDataXLS = new List<Electorate>();
         }
 
-        private List<Electorate> MergeData()
+        public List<Electorate> MergeData()
         {
             List<Electorate> _Electorates = new List<Electorate>();
             for (int i = 0; i < m_ElectorateDataMID.Count; i++)
@@ -49,15 +50,15 @@ namespace cartographer
                 _Electorates[i].Projected = m_ElectorateDataMID[i].Projected;
                 _Electorates[i].TotalPopulation = m_ElectorateDataMID[i].TotalPopulation;
 
-                //XLS DATA
-                _Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
-                _Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
-                _Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
-                _Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
-                _Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
-                _Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
-                _Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
-                _Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
+                ////XLS DATA
+                //_Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
+                //_Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
+                //_Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
+                //_Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
+                //_Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
+                //_Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
+                //_Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
+                //_Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
             }
             return _Electorates;
         }
