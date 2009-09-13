@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -95,6 +96,33 @@ namespace cartographer
 
         private void loadKML_Click(object sender, EventArgs e)
         {
+
+        }
+
+        [DllImport("user32")]
+        public static extern int GetWindowThreadProcessId(int hwnd, ref int lpdwProcessId);
+
+        private void Form_Closing(object sender, FormClosingEventArgs e)
+        {
+            int PID = 0;
+
+            int handle = ge.GetMainHwnd();
+
+            GetWindowThreadProcessId(handle, ref PID);
+
+            Process process = null;
+            try
+            {
+                process = Process.GetProcessById(PID);
+            }
+            catch
+            {
+                //process not found
+            }
+            if (process != null)
+            {
+                process.Kill();
+            }
 
         }
 

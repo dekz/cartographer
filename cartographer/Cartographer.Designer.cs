@@ -49,6 +49,7 @@
             this.Controls.Add(this.loadKML);
             this.Name = "Cartographer";
             this.Text = "Cartographer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.ResumeLayout(false);
 
         }
