@@ -108,7 +108,8 @@ namespace cartographer
             //OleDbCommand commandtest = new OleDbCommand("SELECT * FROM [2004 Election$]", connection);
             OleDbDataAdapter _allData = new OleDbDataAdapter("SELECT * FROM [2004 Election$]", connection);
             DataSet ds = new DataSet();
-            _allData.Fill(ds); 
+            _allData.Fill(ds);
+            Console.Out.WriteLine("fuck");
             Console.Out.WriteLine(ds.Tables[0].Rows[0].ToString());
             
             
