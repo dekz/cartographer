@@ -7,8 +7,8 @@ namespace cartographer
 {
     public interface Importer
     {
-        public void ParseMID();
-        public void ParseMIF();
-        public void ParseXLS();
+        void ParseMID();
+        void ParseMIF();
+        void ParseXLS();
     }
 }
