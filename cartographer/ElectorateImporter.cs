@@ -13,7 +13,7 @@ namespace cartographer
     {
         private List<Electorate> m_ElectorateDataMID;
         private List<Electorate> m_ElectorateDataMIF;
-        private List<Electorate> m_ElectorateDataXLS;
+        private List<Electorate> m_ElectorateDataXLS;        
 
         private StreamReader m_ElectorateReaderMID;
         private StreamReader m_ElectorateReaderMIF;
@@ -84,14 +84,74 @@ namespace cartographer
 
         public bool ParseMIF(string filename)
         {
-            //do shit nau
-
-            return false;
+            
+            try
+            {
+                m_ElectorateReaderMIF = new StreamReader(filename);
+            }
+            catch
+            {
+                //shits fucked
+            }
+            for (int i = 1; i <= 17; i++)
+            {
+                //drop the first 17 lines -> irrelevant
+                m_ElectorateReaderMIF.ReadLine();
+            }
+            while (!m_ElectorateReaderMIF.EndOfStream)
+            {
+                int currentShape = -1;
+                int currentRegion = -1;
+                string line = m_ElectorateReaderMIF.ReadLine();
+                if (line[0] == 'R')
+                {
+                    //number of polys
+                    Electorate electorate = new Electorate();
+                    m_ElectorateDataMIF.Add(electorate);
+                    currentRegion++;
+                    string lineSoFar = "";
+                    for (int i = 7; i < line.Length; i++)
+                    {
+                        lineSoFar += line[i];
+                    }
+                    for (int i = 1; i <= int.Parse(lineSoFar); i++)
+                    {
+                        Shape shape = new Shape();
+                        electorate.Boundaries.Add(shape);
+                    }
+                }
+                else if (line[0] == ' ' && line[1] == ' ' && line[2] != ' ')
+                {
+                    //num points
+                    string lineSoFar;
+                    for (int i = 2; i < line.Length; i++)
+                    {
+                        lineSoFar += line[i];
+                    }
+                    currentShape++;
+                    for (int i = 0; i < int.Parse(lineSoFar); i++)
+		            {
+                        Vector2 tempVector2 = new Vector2();
+                        m_ElectorateDataMIF[currentRegion].Boundaries[currentShape].points.Add(tempVector2);
+		            }                    
+                }
+                else if (line[0] == ' ' && line[1] == ' ' && line[2] == ' ')
+                {
+                    //pen brush center
+                }
+                else
+                {
+                    //its a point
+                }
+                
+            }
+            return true; //cos it so works
         }
 
-        protected bool ParseLineMIF()
+        protected bool ParseLineMIF(string line)
         {
-            return false;
+            
+            return true;
         }
 
         public bool ParseXLS()
