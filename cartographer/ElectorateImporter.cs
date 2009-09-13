@@ -26,10 +26,40 @@ namespace cartographer
             m_ElectorateDataXLS = new List<Electorate>();
         }
 
-        private Electorate MergeData()
+        private List<Electorate> MergeData()
         {
-            object obj = new object();
-            return (Electorate) obj;
+            List<Electorate> _Electorates = new List<Electorate>();
+            for (int i = 0; i < m_ElectorateDataMID.Count; i++)
+            {
+                Electorate _ElectorateData = new Electorate();
+                _Electorates.Add(_ElectorateData);
+            }
+            for (int i = 0; i < m_ElectorateDataMID.Count; i++)
+            {
+                //MIF DATA
+                _Electorates[i].Boundaries = m_ElectorateDataMIF[i].Boundaries;
+
+                //MID DATA
+                _Electorates[i].Actual = m_ElectorateDataMID[i].Actual;
+                _Electorates[i].Area = m_ElectorateDataMID[i].Area;
+                _Electorates[i].Division = m_ElectorateDataMID[i].Division;
+                _Electorates[i].ID = m_ElectorateDataMID[i].ID;
+                _Electorates[i].Name = m_ElectorateDataMID[i].Name;
+                _Electorates[i].Over18 = m_ElectorateDataMID[i].Over18;
+                _Electorates[i].Projected = m_ElectorateDataMID[i].Projected;
+                _Electorates[i].TotalPopulation = m_ElectorateDataMID[i].TotalPopulation;
+
+                //XLS DATA
+                _Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
+                _Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
+                _Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
+                _Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
+                _Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
+                _Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
+                _Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
+                _Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
+            }
+            return _Electorates;
         }
 
         public bool ParseMID(string filename)
