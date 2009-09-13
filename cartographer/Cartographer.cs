@@ -70,6 +70,8 @@ namespace cartographer
             InitializeComponent();
             SetParent(ge.GetRenderHwnd(), this.Handle.ToInt32());
             ResizeGoogleControl();
+            ElectorateImporter g_elecImporter = new ElectorateImporter();
+            g_elecImporter.ParseXLS();
         }
 
         private void ResizeGoogleControl()
