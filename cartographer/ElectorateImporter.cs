@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Data;
+using System.Data.OleDb;
+
 
 namespace cartographer
 {
@@ -24,7 +27,8 @@ namespace cartographer
 
         private Electorate MergeData()
         {
-
+            object obj = new object();
+            return (Electorate) obj;
         }
 
         public bool ParseMID(string filename)
@@ -41,6 +45,7 @@ namespace cartographer
             {
                 ParseLineMID(m_ElectorateReaderMID.ReadLine());    
             }
+            return true;
         }
 
         protected bool ParseLineMID(string line)
@@ -51,80 +56,57 @@ namespace cartographer
             //id,"electoratename",numccds,actual,projected,totalpop,over18,area,"name"
             for (int i = 0; i < line.Length; i++)
             {
-                if (line[i] = ",")
+                if (line[i] == ',')
                 {
                     electorateData[electorateDataPosition] = lineSoFar;
                     lineSoFar = "";
                     electorateDataPosition++;
                 }
-                else if (line[i] = "\"") { /*ignore*/ }
+                else if (line[i] == '\"') { /*ignore*/ }
                 else
                 {
                     lineSoFar += line[i];
                 }
             }
             electorateData[electorateDataPosition] = lineSoFar;
-            Electorate electorate;
+            Electorate electorate = new Electorate();
             electorate.ID = int.Parse(electorateData[0]);
-            electorate.Name = electorateData[1];
+            electorate.Name = int.Parse(electorateData[1]);
             //numccds???????????
-            electorate.Actual = electorateData[3];
-            electorate.Projected = electorateData[4];
-            electorate.TotalPopulation = electorateData[5];
-            electorate.Over18 = electorateData[6];
-            electorate.Area = electorateData[7];
+            electorate.Actual = int.Parse(electorateData[3]);
+            electorate.Projected = int.Parse(electorateData[4]);
+            electorate.TotalPopulation = int.Parse(electorateData[5]);
+            electorate.Over18 = int.Parse(electorateData[6]);
+            electorate.Area = float.Parse(electorateData[7]);
             m_ElectorateDataMID.Add(electorate);
             return true;
         }
 
         public bool ParseMIF(string filename)
         {
-
+            //do shit nau
+            return false;
         }
 
         protected bool ParseLineMIF()
         {
-
+            return false;
         }
 
-        //STAGE TWO
         public bool ParseXLS()
         {
+
            string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
                                       Data Source=\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
                                       ""Excel 8.0;HDR=YES;""";
 
-            DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.OleDb");
-
-            using (DbConnection connection = factory.CreateConnection())
-            {
-                connection.ConnectionString = connectionString;
-
-            using (DbCommand command = connection.CreateCommand())
-            {
-                // Cities$ comes from the name of the worksheet
-                command.CommandText = "SELECT ID,City,State FROM [Cities$]";
-
-                connection.Open();
-
-                using (DbDataReader dr = command.ExecuteReader())
-                  {
-                     while (dr.Read())
-                      {
-                         Debug.WriteLine(dr["ID"].ToString());
-                      }
-                  }
-    }
-}
-
-
-            
-
+          
+            return false;
         }
 
         protected bool ParseLineXLS()
         {
-
+            return false;
         }
 
     }
