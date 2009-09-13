@@ -28,7 +28,7 @@ namespace cartographer
 
         public int ID { get { return m_ID; } set { m_ID = value; } }
         public int Name { get { return m_name; } set { m_name = value; } }
-        public string Attribute1 { get { return m_division; } set { m_division = value; } }
+        public string Division { get { return m_division; } set { m_division = value; } }
         public string State { get { return m_state; } set { m_state = value;} }
         public Vector2 Boundaries { get { return m_boundaries; } set { m_boundaries = value; } }
         public int Actual { get { return m_actual; } set { m_actual = value; } }

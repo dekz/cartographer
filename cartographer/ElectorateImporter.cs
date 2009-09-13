@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Data;
+using System.Data.OleDb;
+
 
 namespace cartographer
 {
@@ -93,6 +96,12 @@ namespace cartographer
 
         public bool ParseXLS()
         {
+
+           string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
+                                      Data Source=\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
+                                      ""Excel 8.0;HDR=YES;""";
+
+          
             return false;
         }
 
