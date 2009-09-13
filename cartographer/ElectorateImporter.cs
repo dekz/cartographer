@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 
 
+
 namespace cartographer
 {
     public class ElectorateImporter : Importer
@@ -97,9 +98,21 @@ namespace cartographer
         public bool ParseXLS()
         {
 
-           string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
+            string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
                                       Data Source=\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
                                       ""Excel 8.0;HDR=YES;""";
+
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            //OleDbCommand commandtest = new OleDbCommand("SELECT * FROM [2004 Election$]", connection);
+            OleDbDataAdapter _allData = new OleDbDataAdapter("SELECT * FROM [2004 Election$]", connection);
+            DataSet ds = new DataSet();
+            _allData.Fill(ds); 
+            Console.Out.WriteLine(ds.Tables[0].Rows[0].ToString());
+            
+            
+
 
           
             return false;
