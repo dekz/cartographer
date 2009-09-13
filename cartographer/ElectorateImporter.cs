@@ -77,7 +77,7 @@ namespace cartographer
             return true;
         }
 
-        public bool ParseMIF()
+        public bool ParseMIF(string filename)
         {
 
         }
