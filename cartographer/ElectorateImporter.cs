@@ -103,6 +103,7 @@ namespace cartographer
             {
                 int currentShape = -1;
                 int currentRegion = -1;
+                int currentPoint = -1;
                 string line = m_ElectorateReaderMIF.ReadLine();
                 if (line[0] == 'R')
                 {
@@ -124,12 +125,13 @@ namespace cartographer
                 else if (line[0] == ' ' && line[1] == ' ' && line[2] != ' ')
                 {
                     //num points
-                    string lineSoFar;
+                    string lineSoFar = "";
                     for (int i = 2; i < line.Length; i++)
                     {
                         lineSoFar += line[i];
                     }
                     currentShape++;
+                    currentPoint = -1;
                     for (int i = 0; i < int.Parse(lineSoFar); i++)
 		            {
                         Vector2 tempVector2 = new Vector2();
@@ -138,14 +140,20 @@ namespace cartographer
                 }
                 else if (line[0] == ' ' && line[1] == ' ' && line[2] == ' ')
                 {
+                    //pen brush center
                     if (line[5] == 'C')
                     {
+                        m_ElectorateDataMIF[currentRegion].Boundaries[currentShape].center = PointParse(line.Substring(11));
                     }
-                    //pen brush center
+                    currentPoint = -1;
+                    currentShape = -1;
+
                 }
                 else
                 {
                     //its a point
+                    currentPoint++;
+                    m_ElectorateDataMIF[currentRegion].Boundaries[currentShape].points[currentPoint] = PointParse(line);
                 }
                 
             }
@@ -154,12 +162,15 @@ namespace cartographer
 
         private Vector2 PointParse(string line)
         {
-
+            string[] points = line.Split(' ');
+            Vector2 point = new Vector2();
+            point.X = float.Parse(points[0]);
+            point.Y = float.Parse(points[1]);
+            return point;
         }
 
         protected bool ParseLineMIF(string line)
         {
-            
             return true;
         }
 

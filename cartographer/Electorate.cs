@@ -48,7 +48,7 @@ namespace cartographer
 
         public Electorate()
         {
-            m_boundaries = new List<Vector2>();
+            m_boundaries = new List<Shape>();
         }
     }
 }
