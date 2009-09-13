@@ -5,39 +5,49 @@ using System.Text;
 
 namespace cartographer
 {
-    class ElectorateImporter : Importer
+    public class ElectorateImporter : Importer
     {
-        //private Electorate m_ElectorateDataMID;
-        //private Electorate m_ElectorateDataMIF;
-        //private Electorate m_ElectorateDataXLS;
+        private Electorate m_ElectorateDataMID;
+        private Electorate m_ElectorateDataMIF;
+        private Electorate m_ElectorateDataXLS;
 
         public ElectorateImporter()
         {
 
         }
 
-        private void MergeData()
+        private Electorate MergeData()
         {
 
         }
 
-        protected void ParseLineMID()
+        public bool ParseMID()
         {
 
         }
 
-        protected void ParseLineMIF()
+        protected bool ParseLineMID()
+        {
+
+        }
+
+        public bool ParseMIF()
+        {
+
+        }
+
+        protected bool ParseLineMIF()
         {
 
         }
 
         //STAGE TWO
-        public void ParseMID()
+        public bool ParseXLS()
         {
 
         }
 
-        protected void ParseLineXLS()
+        protected bool ParseLineXLS()
         {
 
         }

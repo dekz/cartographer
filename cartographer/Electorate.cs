@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace cartographer
+{
+    public class Electorate
+    {
+        private int m_ID;
+        private int m_name;
+        private object m_attribute1;
+        private Vector2 m_boundaries;
+        private int m_actual;
+        private int m_projected;
+        private int m_totalPopulation;
+        private int m_over18;
+        private float m_area;
+        private int m_ALPVotes;
+        private int m_LPVotes;
+        private int m_NPVotes;
+        private int m_DEMVotes;
+        private int m_GRNVotes;
+        private int m_OTHVotes;
+        private int m_LNP2PVotes;
+        private int m_ALP2PVotes;
+
+        public int ID { get { return m_ID; } set { m_ID = value; } }
+        public int Name { get { return m_name; } set { m_name = value; } }
+        public object Attribute1 { get { return m_attribute1; } set { m_attribute1 = value; } }
+        public Vector2 Boundaries { get { return m_boundaries; } set { m_boundaries = value; } }
+        public int Actual { get { return m_actual; } set { m_actual = value; } }
+        public int Projected { get { return m_projected; } set { m_projected = value; } }
+        public int TotalPopulation { get { return m_totalPopulation; } set { m_totalPopulation = value; } }
+        public int Over18 { get { return m_over18; } set { m_over18 = value; } }
+        public float Area { get { return m_area; } set { m_area = value; } }
+        public int ALPVotes { get { return m_ALPVotes; } set { m_ALPVotes = value; } }
+        public int LPVotes { get { return m_LPVotes; } set { m_LPVotes = value; } }
+        public int NPVotes { get { return m_NPVotes; } set { m_NPVotes = value; } }
+        public int DEMVotes { get { return m_DEMVotes; } set { m_DEMVotes = value; } }
+        public int GRNVotes { get { return m_GRNVotes; } set { m_GRNVotes = value; } }
+        public int OTHVotes { get { return m_OTHVotes; } set { m_OTHVotes = value; } }
+        public int LNP2PVotes { get { return m_LNP2PVotes; } set { m_LNP2PVotes = value; } }
+        public int ALP2PVotes { get { return m_ALP2PVotes; } set { m_ALP2PVotes = value; } }
+
+
+        public Electorate()
+        {
+               
+        }
+    }
+}
