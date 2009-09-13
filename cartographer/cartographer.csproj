@@ -54,6 +54,8 @@
     <Compile Include="Cartographer.Designer.cs">
       <DependentUpon>Cartographer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ElectorateImporter.cs" />
+    <Compile Include="Importer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cartographer.resx">
