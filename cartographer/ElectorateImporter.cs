@@ -50,15 +50,24 @@ namespace cartographer
                 _Electorates[i].Projected = m_ElectorateDataMID[i].Projected;
                 _Electorates[i].TotalPopulation = m_ElectorateDataMID[i].TotalPopulation;
 
-                ////XLS DATA
-                //_Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
-                //_Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
-                //_Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
-                //_Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
-                //_Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
-                //_Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
-                //_Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
-                //_Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
+                //XLS DATA
+                for (int j = 0; j < m_ElectorateDataMID.Count; j++)
+                {
+                    for (int k = 0; k < m_ElectorateDataXLS.Count; k++)
+                    {
+                        if (m_ElectorateDataXLS[j].Division == m_ElectorateDataMID[i].Name)
+                        {
+                            _Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
+                            _Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
+                            _Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
+                            _Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
+                            _Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
+                            _Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
+                            _Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
+                            _Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
+                        }
+                    }
+                }
             }
             return _Electorates;
         }
@@ -242,6 +251,7 @@ namespace cartographer
                 if (_param.Count() > 1)
                 {
                     Electorate _electorate = new Electorate(_param);
+                    m_ElectorateDataXLS.Add(_electorate);
                     Console.Out.WriteLine("Creating {0} size is {1}", _param[0], _param.Count()); 
                 }
 
