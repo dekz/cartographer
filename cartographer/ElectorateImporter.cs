@@ -222,9 +222,32 @@ namespace cartographer
             DataSet ds = new DataSet();
             _allData.Fill(ds);
             Console.Out.WriteLine("fuck");
-            Console.Out.WriteLine(ds.Tables[0].Rows[0].ToString());
-            
-            
+            var table = ds.Tables[0];
+            int i = 1;
+            foreach (DataRow row in table.Rows)
+            {
+                //Console.Out.WriteLine(row.ItemArray);
+                 if (i == 149) { break; }
+
+                List<String> _param = new List<String>();
+                foreach (var thing in row.ItemArray)
+                {
+                   
+                    if (thing.ToString().Length != 0)
+                    {
+                        _param.Add(thing.ToString());
+                    }
+                    
+                }
+                if (_param.Count() > 1)
+                {
+                    Electorate _electorate = new Electorate(_param);
+                    Console.Out.WriteLine("Creating {0} size is {1}", _param[0], _param.Count()); 
+                }
+
+                i++;
+
+            }
 
 
           
