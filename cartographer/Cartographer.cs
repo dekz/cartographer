@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 using EARTHLib;
 
@@ -102,6 +103,23 @@ namespace cartographer
 
         private void loadKML_Click(object sender, EventArgs e)
         {
+
+            String textFile = kmlData.Text;
+            string keeper = "";
+            if (File.Exists(textFile))
+            {
+                StreamReader sr = File.OpenText(textFile);
+                string lewl;
+                while ((lewl = sr.ReadLine()) != null)
+                {
+                    keeper += lewl;
+                }
+                ge.LoadKmlData(ref keeper);
+            }
+            else
+            {
+                MessageBox.Show("File doesn't exist");
+            }
 
         }
 
