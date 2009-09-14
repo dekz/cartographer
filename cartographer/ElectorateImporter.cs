@@ -218,11 +218,11 @@ namespace cartographer
 
         public bool ParseXLS()
         {
-
+            string _file = Directory.GetCurrentDirectory();
             string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;
-                                      Data Source=|DataDirectory|\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
-                                      ""Excel 8.0;HDR=YES;""";
-
+                                        Data Source=|DataDirectory|\data\Qld_FederalResults by Electorate-2004.xls;Extended Properties=
+                                        ""Excel 8.0;HDR=YES;""";
+ 
             OleDbConnection connection = new OleDbConnection(connectionString);
             connection.Open();
 
