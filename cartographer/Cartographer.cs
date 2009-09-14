@@ -79,7 +79,7 @@ namespace cartographer
             m_Electorates = g_elecImporter.MergeData();
 
             Dms _test = new Dms(-27.579269);
-            Console.Out.WriteLine(_test.m_seconds);
+            Console.Out.WriteLine(_test.m_minutes);
         }
 
         private void ResizeGoogleControl()
