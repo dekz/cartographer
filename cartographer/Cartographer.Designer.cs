@@ -29,27 +29,18 @@
         private void InitializeComponent()
         {
             this.loadKML = new System.Windows.Forms.Button();
-            this.kmlData = new System.Windows.Forms.TextBox();
             this.convertData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loadKML
             // 
-            this.loadKML.Location = new System.Drawing.Point(797, 113);
+            this.loadKML.Location = new System.Drawing.Point(797, 87);
             this.loadKML.Name = "loadKML";
-            this.loadKML.Size = new System.Drawing.Size(75, 23);
+            this.loadKML.Size = new System.Drawing.Size(168, 23);
             this.loadKML.TabIndex = 0;
-            this.loadKML.Text = "load KML";
+            this.loadKML.Text = "Load KML";
             this.loadKML.UseVisualStyleBackColor = true;
             this.loadKML.Click += new System.EventHandler(this.loadKML_Click);
-            // 
-            // kmlData
-            // 
-            this.kmlData.Location = new System.Drawing.Point(796, 87);
-            this.kmlData.Name = "kmlData";
-            this.kmlData.Size = new System.Drawing.Size(169, 20);
-            this.kmlData.TabIndex = 1;
-            this.kmlData.Text = "C:\\\\kml.kml";
             // 
             // convertData
             // 
@@ -67,20 +58,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 524);
             this.Controls.Add(this.convertData);
-            this.Controls.Add(this.kmlData);
             this.Controls.Add(this.loadKML);
             this.Name = "Cartographer";
             this.Text = "Cartographer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button loadKML;
-        private System.Windows.Forms.TextBox kmlData;
         private System.Windows.Forms.Button convertData;
 
     }
