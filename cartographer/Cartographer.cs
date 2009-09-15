@@ -148,7 +148,6 @@ namespace cartographer
 
         private void convertData_Click(object sender, EventArgs e)
         {
-            pgBar.BeginInvoke();
             ElectorateImporter g_elecImporter = new ElectorateImporter();
             g_elecImporter.ParseXLS(_xlsData);
             g_elecImporter.ParseMID(_midData);

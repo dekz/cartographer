@@ -34,7 +34,6 @@
             this.xlsLab = new System.Windows.Forms.Label();
             this.midLab = new System.Windows.Forms.Label();
             this.mifLab = new System.Windows.Forms.Label();
-            this.pgBar = new System.Windows.Forms.ProgressBar();
             this.xlsBut = new System.Windows.Forms.Button();
             this.midBut = new System.Windows.Forms.Button();
             this.mifBut = new System.Windows.Forms.Button();
@@ -48,7 +47,7 @@
             // 
             // loadKML
             // 
-            this.loadKML.Location = new System.Drawing.Point(812, 460);
+            this.loadKML.Location = new System.Drawing.Point(813, 228);
             this.loadKML.Name = "loadKML";
             this.loadKML.Size = new System.Drawing.Size(168, 23);
             this.loadKML.TabIndex = 0;
@@ -58,7 +57,7 @@
             // 
             // convertData
             // 
-            this.convertData.Location = new System.Drawing.Point(812, 431);
+            this.convertData.Location = new System.Drawing.Point(813, 190);
             this.convertData.Name = "convertData";
             this.convertData.Size = new System.Drawing.Size(168, 23);
             this.convertData.TabIndex = 2;
@@ -79,7 +78,7 @@
             // xlsLab
             // 
             this.xlsLab.AutoSize = true;
-            this.xlsLab.Location = new System.Drawing.Point(860, 285);
+            this.xlsLab.Location = new System.Drawing.Point(861, 157);
             this.xlsLab.Name = "xlsLab";
             this.xlsLab.Size = new System.Drawing.Size(70, 13);
             this.xlsLab.TabIndex = 4;
@@ -88,7 +87,7 @@
             // midLab
             // 
             this.midLab.AutoSize = true;
-            this.midLab.Location = new System.Drawing.Point(860, 258);
+            this.midLab.Location = new System.Drawing.Point(861, 126);
             this.midLab.Name = "midLab";
             this.midLab.Size = new System.Drawing.Size(70, 13);
             this.midLab.TabIndex = 5;
@@ -98,22 +97,15 @@
             // mifLab
             // 
             this.mifLab.AutoSize = true;
-            this.mifLab.Location = new System.Drawing.Point(860, 231);
+            this.mifLab.Location = new System.Drawing.Point(861, 93);
             this.mifLab.Name = "mifLab";
             this.mifLab.Size = new System.Drawing.Size(68, 13);
             this.mifLab.TabIndex = 6;
             this.mifLab.Text = "No MIF Data";
             // 
-            // pgBar
-            // 
-            this.pgBar.Location = new System.Drawing.Point(696, 489);
-            this.pgBar.Name = "pgBar";
-            this.pgBar.Size = new System.Drawing.Size(100, 23);
-            this.pgBar.TabIndex = 7;
-            // 
             // xlsBut
             // 
-            this.xlsBut.Location = new System.Drawing.Point(936, 280);
+            this.xlsBut.Location = new System.Drawing.Point(937, 152);
             this.xlsBut.Name = "xlsBut";
             this.xlsBut.Size = new System.Drawing.Size(44, 23);
             this.xlsBut.TabIndex = 8;
@@ -123,7 +115,7 @@
             // 
             // midBut
             // 
-            this.midBut.Location = new System.Drawing.Point(936, 253);
+            this.midBut.Location = new System.Drawing.Point(937, 121);
             this.midBut.Name = "midBut";
             this.midBut.Size = new System.Drawing.Size(44, 23);
             this.midBut.TabIndex = 9;
@@ -133,7 +125,7 @@
             // 
             // mifBut
             // 
-            this.mifBut.Location = new System.Drawing.Point(936, 226);
+            this.mifBut.Location = new System.Drawing.Point(937, 88);
             this.mifBut.Name = "mifBut";
             this.mifBut.Size = new System.Drawing.Size(44, 23);
             this.mifBut.TabIndex = 10;
@@ -143,7 +135,7 @@
             // 
             // mifPB
             // 
-            this.mifPB.Location = new System.Drawing.Point(832, 228);
+            this.mifPB.Location = new System.Drawing.Point(833, 90);
             this.mifPB.Name = "mifPB";
             this.mifPB.Size = new System.Drawing.Size(16, 16);
             this.mifPB.TabIndex = 11;
@@ -151,7 +143,7 @@
             // 
             // midPB
             // 
-            this.midPB.Location = new System.Drawing.Point(832, 256);
+            this.midPB.Location = new System.Drawing.Point(833, 124);
             this.midPB.Name = "midPB";
             this.midPB.Size = new System.Drawing.Size(16, 16);
             this.midPB.TabIndex = 12;
@@ -159,7 +151,7 @@
             // 
             // xlsPB
             // 
-            this.xlsPB.Location = new System.Drawing.Point(832, 282);
+            this.xlsPB.Location = new System.Drawing.Point(833, 154);
             this.xlsPB.Name = "xlsPB";
             this.xlsPB.Size = new System.Drawing.Size(16, 16);
             this.xlsPB.TabIndex = 13;
@@ -176,7 +168,6 @@
             this.Controls.Add(this.mifBut);
             this.Controls.Add(this.midBut);
             this.Controls.Add(this.xlsBut);
-            this.Controls.Add(this.pgBar);
             this.Controls.Add(this.mifLab);
             this.Controls.Add(this.midLab);
             this.Controls.Add(this.xlsLab);
@@ -202,7 +193,6 @@
         private System.Windows.Forms.Label xlsLab;
         private System.Windows.Forms.Label midLab;
         private System.Windows.Forms.Label mifLab;
-        private System.Windows.Forms.ProgressBar pgBar;
         private System.Windows.Forms.Button xlsBut;
         private System.Windows.Forms.Button midBut;
         private System.Windows.Forms.Button mifBut;
