@@ -18,8 +18,6 @@
       </PolyStyle>
     </Style>
 	
-	
-	
 	    <Style id="Labor">
 	  <LabelStyle> 
         <color>7fffaaff</color> 

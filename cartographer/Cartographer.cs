@@ -123,7 +123,7 @@ namespace cartographer
             }
 
             if ((_kmlString != null) && (_kmlString.Length > 0))
-            {
+            {   
                 ge.LoadKmlData(ref _kmlString);
             }
             else
