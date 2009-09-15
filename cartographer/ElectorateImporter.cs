@@ -206,8 +206,8 @@ namespace cartographer
         {
             string[] points = line.Split(' ');
             Vector2 point = new Vector2();
-            point.X = new Dms(float.Parse(points[0]));
-            point.Y = new Dms(float.Parse(points[1]));
+            point.X = double.Parse(points[0]);
+            point.Y = double.Parse(points[1]);
             return point;
         }
 
