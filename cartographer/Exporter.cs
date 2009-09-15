@@ -46,6 +46,22 @@ namespace cartographer
                 {
                     tw.WriteLine("<Placemark>");
                     tw.WriteLine("<name>" + elec.Name + "</name>");
+                    tw.WriteLine("<description>" +
+                        "Population: " + elec.TotalPopulation + "\n" +
+                        "Actual: " + elec.Actual + "\n" +
+                        "Projected: " + elec.Projected + "\n" +
+                        "Over 18: " + elec.Over18 + "\n" +
+                        "Area: " + elec.Area + "\n\nVotes\n" +
+                        "ALP: " + elec.ALPVotes + "\n" +
+                        "LNP: " + elec.LPVotes + "\n" +
+                        "NP: " + elec.NPVotes + "\n" +
+                        "DEM: " + elec.DEMVotes + "\n" +
+                        "GRN: " + elec.GRNVotes + "\n" +
+                        "Other: " + elec.OTHVotes + "\n" +
+                        "\nTwo Party Preferred\n" +
+                        "ALP: " + elec.ALP2PVotes + "\n" +
+                        "LNP: " + elec.LNP2PVotes + "\n" +
+                        "</description>");
                     
                     // Style Selection
                     string TPWinner = "";
