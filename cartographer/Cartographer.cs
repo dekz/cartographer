@@ -113,6 +113,7 @@ namespace cartographer
             }
 
             ge.OpenKmlFile(_textFile, 1);
+
         }
 
         [DllImport("user32")]
