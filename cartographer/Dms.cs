@@ -5,7 +5,7 @@ using System.Text;
 
 namespace cartographer
 {
-    class Dms
+    public class Dms
     {
         public int m_degrees;
         public int m_minutes;

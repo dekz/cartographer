@@ -26,7 +26,7 @@ namespace cartographer
 
         public bool exportKMLFile()
         {
-            string _returnKML = converToKml();
+            string _returnKML = convertToKml();
             //write this shit to a file
             return true;
         }

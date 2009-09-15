@@ -7,7 +7,7 @@ namespace cartographer
 {
     public class Vector2
     {
-        public float X;
-        public float Y;
+        public Dms X;
+        public Dms Y;
     }
 }
