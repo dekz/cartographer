@@ -19,43 +19,19 @@ namespace cartographer
         {
 
             string _kml = "";
-            StreamReader tr = new StreamReader("data/kml.kml");
-            StreamWriter tw = new StreamWriter("data/kml2.kml");
+            StreamReader tr = new StreamReader("data/KmlTemplate.txt");
+            StreamWriter tw = new StreamWriter("data/kml - Copy.kml");
 
+            // Write the KML template styles.
             while (!tr.EndOfStream)
             {
-                _kml += tr.ReadLine();
+                tw.WriteLine(tr.ReadLine());
             }
             tr.Close();
-            string _altitudestr = "<altitudeMode>relativeToGround</altitudeMode>";
+            
 
-            if (!(m_electorates == null))
-            {
-                foreach (Electorate elec in m_electorates)
-                {
-                    string boundary = "<Polygon id=\"";
-                    boundary += elec.Name;
-                    boundary += "\">";
-                    tw.WriteLine(boundary);
-                    tw.WriteLine(_altitudestr);
 
-                    foreach (Shape bounds in elec.Boundaries)
-                    {                        
-                        foreach (Vector2 point in bounds.points)
-                        {
-                            string pts = (point.X.ToString() + "," + point.Y.ToString() + ",0");
-                            tw.WriteLine(pts);
-                        }
-                    }
-
-                    boundary = "</Polygon>";
-                    tw.WriteLine(boundary);
-                }
-                //tw.Write(_kml);
-                Console.Out.WriteLine("Done");
-                tw.WriteLine("</kml>");
-                tw.Close();
-            }
+            writeCoordinates(tw);
             return _kml;
         }
 
@@ -64,6 +40,57 @@ namespace cartographer
             string _returnKML = convertToKml();
             //write this shit to a file
             return true;
+        }
+
+        private void writeCoordinates(StreamWriter tw)
+        {
+            if (!(m_electorates == null))
+            {
+                foreach (Electorate elec in m_electorates)
+                {
+                    tw.WriteLine("<Placemark>");
+                    tw.WriteLine("<name>" + elec.Name + "</name>");
+                    
+                    // Style Selection
+                    string TPWinner = "";
+                    if (elec.LNP2PVotes > elec.ALP2PVotes) 
+                    {
+                        TPWinner = "#Labor";
+                    } else
+                    {
+                        TPWinner = "#Liberal";
+                    }
+
+                    tw.WriteLine("<styleUrl>" + TPWinner + "</styleUrl>");
+
+                    foreach (Shape bounds in elec.Boundaries)
+                    {
+                        tw.WriteLine("<Polygon>");
+                        tw.WriteLine("<extrude>0</extrude>");
+                        tw.WriteLine("<tessellate>1</tessellate>");
+                        tw.WriteLine("<altitudeMode>clampToGround</altitudeMode>");
+                        tw.WriteLine("<outerBoundaryIs>"); 
+                        tw.WriteLine("<LinearRing>");
+                        tw.WriteLine("<coordinates>");
+
+                        foreach (Vector2 point in bounds.points)
+                        {
+                            string pts = (point.X.ToString() + "," + point.Y.ToString() + ",20");
+                            tw.WriteLine(pts);
+                        }
+                        tw.WriteLine("</coordinates>");
+                        tw.WriteLine("</LinearRing>");
+                        tw.WriteLine("</outerBoundaryIs>"); 
+                        tw.WriteLine("</Polygon>");
+                    }
+                    tw.WriteLine("</Placemark>");
+                }
+                
+                tw.WriteLine("</Document>");
+                tw.WriteLine("</kml>");
+                Console.Out.WriteLine("Done");
+                tw.Close();
+            }
         }
     }
 }
