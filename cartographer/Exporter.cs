@@ -26,30 +26,34 @@ namespace cartographer
             {
                 _kml += tr.ReadLine();
             }
+            tr.Close();
+            string _altitudestr = "<altitudeMode>relativeToGround</altitudeMode>";
 
             if (!(m_electorates == null))
             {
                 foreach (Electorate elec in m_electorates)
                 {
-                    
+                    string boundary = "<Polygon id=\"";
+                    boundary += elec.Name;
+                    boundary += "\">";
+                    tw.WriteLine(boundary);
+                    tw.WriteLine(_altitudestr);
+
                     foreach (Shape bounds in elec.Boundaries)
-                    {
-                        
-                        string shapePts = "";
-                        
+                    {                        
                         foreach (Vector2 point in bounds.points)
                         {
                             string pts = (point.X.ToString() + "," + point.Y.ToString() + ",0");
-                            shapePts += pts;
+                            tw.WriteLine(pts);
                         }
-                        tw.WriteLine(shapePts);
-                        tw.Flush();
                     }
+
+                    boundary = "</Polygon>";
                 }
                 //tw.Write(_kml);
-                Console.Out.WriteLine(_kml);
+                Console.Out.WriteLine("Done");
+                tw.Close();
             }
-            tw.Close();
             return _kml;
         }
 
