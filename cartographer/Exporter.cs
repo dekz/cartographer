@@ -28,9 +28,6 @@ namespace cartographer
                 tw.WriteLine(tr.ReadLine());
             }
             tr.Close();
-            
-
-
             writeCoordinates(tw);
             return _kml;
         }
@@ -38,7 +35,6 @@ namespace cartographer
         public bool exportKMLFile()
         {
             string _returnKML = convertToKml();
-            //write this shit to a file
             return true;
         }
 
