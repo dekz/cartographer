@@ -55,16 +55,16 @@ namespace cartographer
                 {
                     for (int k = 0; k < m_ElectorateDataXLS.Count; k++)
                     {
-                        if (m_ElectorateDataXLS[j].Division == m_ElectorateDataMID[i].Name)
+                        if (m_ElectorateDataMID[i].Name == m_ElectorateDataXLS[k].Division)
                         {
-                            _Electorates[i].ALP2PVotes = m_ElectorateDataXLS[i].ALP2PVotes;
-                            _Electorates[i].ALPVotes = m_ElectorateDataXLS[i].ALPVotes;
-                            _Electorates[i].DEMVotes = m_ElectorateDataXLS[i].DEMVotes;
-                            _Electorates[i].GRNVotes = m_ElectorateDataXLS[i].GRNVotes;
-                            _Electorates[i].LNP2PVotes = m_ElectorateDataXLS[i].LNP2PVotes;
-                            _Electorates[i].LPVotes = m_ElectorateDataXLS[i].LPVotes;
-                            _Electorates[i].NPVotes = m_ElectorateDataXLS[i].NPVotes;
-                            _Electorates[i].OTHVotes = m_ElectorateDataXLS[i].OTHVotes;
+                            _Electorates[i].ALP2PVotes = m_ElectorateDataXLS[k].ALP2PVotes;
+                            _Electorates[i].ALPVotes = m_ElectorateDataXLS[k].ALPVotes;
+                            _Electorates[i].DEMVotes = m_ElectorateDataXLS[k].DEMVotes;
+                            _Electorates[i].GRNVotes = m_ElectorateDataXLS[k].GRNVotes;
+                            _Electorates[i].LNP2PVotes = m_ElectorateDataXLS[k].LNP2PVotes;
+                            _Electorates[i].LPVotes = m_ElectorateDataXLS[k].LPVotes;
+                            _Electorates[i].NPVotes = m_ElectorateDataXLS[k].NPVotes;
+                            _Electorates[i].OTHVotes = m_ElectorateDataXLS[k].OTHVotes;
                         }
                     }
                 }
@@ -207,7 +207,7 @@ namespace cartographer
             string[] points = line.Split(' ');
             Vector2 point = new Vector2();
             point.X = double.Parse(points[0]);
-            point.Y = double.Parse(points[1]);
+            point.Y = float.Parse(points[1]);
             return point;
         }
 
