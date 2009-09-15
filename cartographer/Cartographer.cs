@@ -155,6 +155,7 @@ namespace cartographer
             m_Electorates = g_elecImporter.MergeData();
             Exporter m_exporter = new Exporter(m_Electorates);
             m_exporter.convertToKml();
+            convertPB.Image = (Image)pic.ResourceManager.GetObject("Tick");
             MessageBox.Show("Created KML File from XLS and MID/MIF Data");
 
         }

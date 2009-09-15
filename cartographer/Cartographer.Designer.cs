@@ -40,9 +40,11 @@
             this.mifPB = new System.Windows.Forms.PictureBox();
             this.midPB = new System.Windows.Forms.PictureBox();
             this.xlsPB = new System.Windows.Forms.PictureBox();
+            this.convertPB = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.mifPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.midPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xlsPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.convertPB)).BeginInit();
             this.SuspendLayout();
             // 
             // loadKML
@@ -57,9 +59,9 @@
             // 
             // convertData
             // 
-            this.convertData.Location = new System.Drawing.Point(813, 190);
+            this.convertData.Location = new System.Drawing.Point(864, 185);
             this.convertData.Name = "convertData";
-            this.convertData.Size = new System.Drawing.Size(168, 23);
+            this.convertData.Size = new System.Drawing.Size(117, 23);
             this.convertData.TabIndex = 2;
             this.convertData.Text = "Convert Data";
             this.convertData.UseVisualStyleBackColor = true;
@@ -157,11 +159,20 @@
             this.xlsPB.TabIndex = 13;
             this.xlsPB.TabStop = false;
             // 
+            // convertPB
+            // 
+            this.convertPB.Location = new System.Drawing.Point(833, 188);
+            this.convertPB.Name = "convertPB";
+            this.convertPB.Size = new System.Drawing.Size(16, 16);
+            this.convertPB.TabIndex = 14;
+            this.convertPB.TabStop = false;
+            // 
             // Cartographer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 524);
+            this.Controls.Add(this.convertPB);
             this.Controls.Add(this.xlsPB);
             this.Controls.Add(this.midPB);
             this.Controls.Add(this.mifPB);
@@ -180,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mifPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.midPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xlsPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.convertPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +211,7 @@
         private System.Windows.Forms.PictureBox mifPB;
         private System.Windows.Forms.PictureBox midPB;
         private System.Windows.Forms.PictureBox xlsPB;
+        private System.Windows.Forms.PictureBox convertPB;
 
     }
 }
