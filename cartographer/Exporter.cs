@@ -49,9 +49,11 @@ namespace cartographer
                     }
 
                     boundary = "</Polygon>";
+                    tw.WriteLine(boundary);
                 }
                 //tw.Write(_kml);
                 Console.Out.WriteLine("Done");
+                tw.WriteLine("</kml>");
                 tw.Close();
             }
             return _kml;

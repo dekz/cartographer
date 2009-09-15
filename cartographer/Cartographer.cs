@@ -79,6 +79,7 @@ namespace cartographer
             m_Electorates = g_elecImporter.MergeData();
             Exporter m_exporter = new Exporter(m_Electorates);
             m_exporter.convertToKml();
+
         }
 
         private void ResizeGoogleControl()
