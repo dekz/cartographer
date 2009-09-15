@@ -9,6 +9,6 @@ namespace cartographer
     {
         bool ParseMID(string filename);
         bool ParseMIF(string filename);
-        bool ParseXLS();
+        bool ParseXLS(string filename);
     }
 }

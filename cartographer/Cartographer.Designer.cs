@@ -31,11 +31,24 @@
             this.loadKML = new System.Windows.Forms.Button();
             this.convertData = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
+            this.xlsLab = new System.Windows.Forms.Label();
+            this.midLab = new System.Windows.Forms.Label();
+            this.mifLab = new System.Windows.Forms.Label();
+            this.pgBar = new System.Windows.Forms.ProgressBar();
+            this.xlsBut = new System.Windows.Forms.Button();
+            this.midBut = new System.Windows.Forms.Button();
+            this.mifBut = new System.Windows.Forms.Button();
+            this.mifPB = new System.Windows.Forms.PictureBox();
+            this.midPB = new System.Windows.Forms.PictureBox();
+            this.xlsPB = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.mifPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xlsPB)).BeginInit();
             this.SuspendLayout();
             // 
             // loadKML
             // 
-            this.loadKML.Location = new System.Drawing.Point(797, 87);
+            this.loadKML.Location = new System.Drawing.Point(812, 460);
             this.loadKML.Name = "loadKML";
             this.loadKML.Size = new System.Drawing.Size(168, 23);
             this.loadKML.TabIndex = 0;
@@ -45,7 +58,7 @@
             // 
             // convertData
             // 
-            this.convertData.Location = new System.Drawing.Point(797, 58);
+            this.convertData.Location = new System.Drawing.Point(812, 431);
             this.convertData.Name = "convertData";
             this.convertData.Size = new System.Drawing.Size(168, 23);
             this.convertData.TabIndex = 2;
@@ -55,7 +68,7 @@
             // 
             // exit
             // 
-            this.exit.Location = new System.Drawing.Point(797, 116);
+            this.exit.Location = new System.Drawing.Point(812, 489);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(168, 23);
             this.exit.TabIndex = 3;
@@ -63,18 +76,121 @@
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
+            // xlsLab
+            // 
+            this.xlsLab.AutoSize = true;
+            this.xlsLab.Location = new System.Drawing.Point(860, 285);
+            this.xlsLab.Name = "xlsLab";
+            this.xlsLab.Size = new System.Drawing.Size(70, 13);
+            this.xlsLab.TabIndex = 4;
+            this.xlsLab.Text = "No XLS Data";
+            // 
+            // midLab
+            // 
+            this.midLab.AutoSize = true;
+            this.midLab.Location = new System.Drawing.Point(860, 258);
+            this.midLab.Name = "midLab";
+            this.midLab.Size = new System.Drawing.Size(70, 13);
+            this.midLab.TabIndex = 5;
+            this.midLab.Text = "No MID Data";
+            this.midLab.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // mifLab
+            // 
+            this.mifLab.AutoSize = true;
+            this.mifLab.Location = new System.Drawing.Point(860, 231);
+            this.mifLab.Name = "mifLab";
+            this.mifLab.Size = new System.Drawing.Size(68, 13);
+            this.mifLab.TabIndex = 6;
+            this.mifLab.Text = "No MIF Data";
+            // 
+            // pgBar
+            // 
+            this.pgBar.Location = new System.Drawing.Point(696, 489);
+            this.pgBar.Name = "pgBar";
+            this.pgBar.Size = new System.Drawing.Size(100, 23);
+            this.pgBar.TabIndex = 7;
+            // 
+            // xlsBut
+            // 
+            this.xlsBut.Location = new System.Drawing.Point(936, 280);
+            this.xlsBut.Name = "xlsBut";
+            this.xlsBut.Size = new System.Drawing.Size(44, 23);
+            this.xlsBut.TabIndex = 8;
+            this.xlsBut.Text = "Load";
+            this.xlsBut.UseVisualStyleBackColor = true;
+            this.xlsBut.Click += new System.EventHandler(this.xlsBut_Click);
+            // 
+            // midBut
+            // 
+            this.midBut.Location = new System.Drawing.Point(936, 253);
+            this.midBut.Name = "midBut";
+            this.midBut.Size = new System.Drawing.Size(44, 23);
+            this.midBut.TabIndex = 9;
+            this.midBut.Text = "Load";
+            this.midBut.UseVisualStyleBackColor = true;
+            this.midBut.Click += new System.EventHandler(this.midBut_Click);
+            // 
+            // mifBut
+            // 
+            this.mifBut.Location = new System.Drawing.Point(936, 226);
+            this.mifBut.Name = "mifBut";
+            this.mifBut.Size = new System.Drawing.Size(44, 23);
+            this.mifBut.TabIndex = 10;
+            this.mifBut.Text = "Load";
+            this.mifBut.UseVisualStyleBackColor = true;
+            this.mifBut.Click += new System.EventHandler(this.mifBut_Click);
+            // 
+            // mifPB
+            // 
+            this.mifPB.Location = new System.Drawing.Point(832, 228);
+            this.mifPB.Name = "mifPB";
+            this.mifPB.Size = new System.Drawing.Size(16, 16);
+            this.mifPB.TabIndex = 11;
+            this.mifPB.TabStop = false;
+            // 
+            // midPB
+            // 
+            this.midPB.Location = new System.Drawing.Point(832, 256);
+            this.midPB.Name = "midPB";
+            this.midPB.Size = new System.Drawing.Size(16, 16);
+            this.midPB.TabIndex = 12;
+            this.midPB.TabStop = false;
+            // 
+            // xlsPB
+            // 
+            this.xlsPB.Location = new System.Drawing.Point(832, 282);
+            this.xlsPB.Name = "xlsPB";
+            this.xlsPB.Size = new System.Drawing.Size(16, 16);
+            this.xlsPB.TabIndex = 13;
+            this.xlsPB.TabStop = false;
+            // 
             // Cartographer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 524);
+            this.Controls.Add(this.xlsPB);
+            this.Controls.Add(this.midPB);
+            this.Controls.Add(this.mifPB);
+            this.Controls.Add(this.mifBut);
+            this.Controls.Add(this.midBut);
+            this.Controls.Add(this.xlsBut);
+            this.Controls.Add(this.pgBar);
+            this.Controls.Add(this.mifLab);
+            this.Controls.Add(this.midLab);
+            this.Controls.Add(this.xlsLab);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.convertData);
             this.Controls.Add(this.loadKML);
             this.Name = "Cartographer";
             this.Text = "Cartographer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            ((System.ComponentModel.ISupportInitialize)(this.mifPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xlsPB)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,6 +199,16 @@
         private System.Windows.Forms.Button loadKML;
         private System.Windows.Forms.Button convertData;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Label xlsLab;
+        private System.Windows.Forms.Label midLab;
+        private System.Windows.Forms.Label mifLab;
+        private System.Windows.Forms.ProgressBar pgBar;
+        private System.Windows.Forms.Button xlsBut;
+        private System.Windows.Forms.Button midBut;
+        private System.Windows.Forms.Button mifBut;
+        private System.Windows.Forms.PictureBox mifPB;
+        private System.Windows.Forms.PictureBox midPB;
+        private System.Windows.Forms.PictureBox xlsPB;
 
     }
 }

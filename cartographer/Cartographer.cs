@@ -17,6 +17,9 @@ namespace cartographer
     {
         public EARTHLib.ApplicationGE ge = null; //new ApplicationGEClass();
         public List<Electorate> m_Electorates;
+        private string _midData;
+        private string _mifData;
+        private string _xlsData;
         #region COM Hacks
 
         [DllImport("user32.dll")]
@@ -145,10 +148,11 @@ namespace cartographer
 
         private void convertData_Click(object sender, EventArgs e)
         {
+            pgBar.BeginInvoke();
             ElectorateImporter g_elecImporter = new ElectorateImporter();
-            g_elecImporter.ParseXLS();
-            g_elecImporter.ParseMID("data/QLD_Federal_Electoral_Boundaries.mid");
-            g_elecImporter.ParseMIF("data/QLD_Federal_Electoral_Boundaries.mif");
+            g_elecImporter.ParseXLS(_xlsData);
+            g_elecImporter.ParseMID(_midData);
+            g_elecImporter.ParseMIF(_mifData);
             m_Electorates = g_elecImporter.MergeData();
             Exporter m_exporter = new Exporter(m_Electorates);
             m_exporter.convertToKml();
@@ -160,6 +164,74 @@ namespace cartographer
         {
            
             Application.Exit();
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mifBut_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog _fDialog = new OpenFileDialog();
+            _fDialog.Title = "Select MIF Data File";
+            _fDialog.Filter = "MIF Files|*.mif";
+            _fDialog.InitialDirectory = "data/";
+
+
+            _mifData = "";
+
+            if (_fDialog.ShowDialog() == DialogResult.OK)
+            {
+                _fDialog.CheckFileExists = true;
+                _mifData = _fDialog.FileName.ToString();
+                mifLab.Text = "MIF Loaded";
+               mifPB.Image = (Image)pic.ResourceManager.GetObject("Tick");
+            }
+
+        }
+
+        private void midBut_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog _fDialog = new OpenFileDialog();
+            _fDialog.Title = "Select MID Data File";
+            _fDialog.Filter = "MID Files|*.mid";
+            _fDialog.InitialDirectory = "data/";
+
+
+            _midData = "";
+
+            if (_fDialog.ShowDialog() == DialogResult.OK)
+            {
+                _fDialog.CheckFileExists = true;
+                _midData = _fDialog.FileName.ToString();
+                midLab.Text = "MID Loaded";
+                midPB.Image = (Image)pic.ResourceManager.GetObject("Tick");
+            }
+
+        }
+
+        private void xlsBut_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog _fDialog = new OpenFileDialog();
+            _fDialog.Title = "Select XLS Data File";
+            _fDialog.Filter = "XLS Files|*.xls";
+            _fDialog.InitialDirectory = "data/";
+
+
+            _xlsData = "";
+
+            if (_fDialog.ShowDialog() == DialogResult.OK)
+            {
+                _fDialog.CheckFileExists = true;
+                _xlsData = _fDialog.FileName.ToString();
+                xlsLab.Text = "XLS Loaded";
+                xlsPB.Image = (Image)pic.ResourceManager.GetObject("Tick");
+            }
 
         }
 
