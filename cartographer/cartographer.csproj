@@ -89,6 +89,7 @@
     <Compile Include="Dms.cs" />
     <Compile Include="Electorate.cs" />
     <Compile Include="ElectorateImporter.cs" />
+    <Compile Include="Exporter.cs" />
     <Compile Include="Importer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

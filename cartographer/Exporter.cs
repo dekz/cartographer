@@ -7,27 +7,28 @@ namespace cartographer
 {
     class Exporter
     {
-        private ElectorateImporter _elecImporter;
+        private List<Electorate> m_electorates;
 
-        public Exporter(ElectorateImporter a_elecImporter)
+        public Exporter(List<Electorate> a_electorates)
         {
-            _elecImporter = a_elecImporter;
+            m_electorates = a_electorates;
         }
 
         public string convertToKml()
         {
-            if (!(_elecImporter == null))
+            string _kml = "";
+            if (!(m_electorates == null))
             {
 
             }
+            return _kml;
         }
 
         public bool exportKMLFile()
         {
-            if (!(_elecImporter == null))
-            {
-                
-            }
+            string _returnKML = converToKml();
+            //write this shit to a file
+            return true;
         }
     }
 }
