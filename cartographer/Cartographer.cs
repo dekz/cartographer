@@ -72,14 +72,6 @@ namespace cartographer
             InitializeComponent();
             SetParent(ge.GetRenderHwnd(), this.Handle.ToInt32());
             ResizeGoogleControl();
-            ElectorateImporter g_elecImporter = new ElectorateImporter();
-            g_elecImporter.ParseXLS();
-            g_elecImporter.ParseMID("data/QLD_Federal_Electoral_Boundaries.mid");
-            g_elecImporter.ParseMIF("data/QLD_Federal_Electoral_Boundaries.mif");
-            m_Electorates = g_elecImporter.MergeData();
-            Exporter m_exporter = new Exporter(m_Electorates);
-            m_exporter.convertToKml();
-
         }
 
         private void ResizeGoogleControl()
@@ -106,24 +98,38 @@ namespace cartographer
 
         private void loadKML_Click(object sender, EventArgs e)
         {
+            OpenFileDialog _fDialog = new OpenFileDialog();
+            _fDialog.Title = "Select KML Data File";
+            _fDialog.Filter = "KML Files|*.kml";
+            _fDialog.InitialDirectory = "data/";
 
-            String textFile = kmlData.Text;
-            string keeper = "";
-            if (File.Exists(textFile))
+
+            string _textFile = "data/kml.kml";
+
+            if (_fDialog.ShowDialog() == DialogResult.OK)
             {
-                StreamReader sr = File.OpenText(textFile);
-                string lewl;
-                while ((lewl = sr.ReadLine()) != null)
-                {
-                    keeper += lewl;
-                }
-                ge.LoadKmlData(ref keeper);
+                _fDialog.CheckFileExists = true;
+                _textFile = _fDialog.FileName.ToString();
+            }
+
+
+
+            string _kmlString = "";
+            StreamReader sr = File.OpenText(_textFile);
+            string _textString;
+            while ((_textString = sr.ReadLine()) != null)
+            {
+                _kmlString += _textString;
+            }
+
+            if ((_kmlString != null) && (_kmlString.Length > 0))
+            {
+                ge.LoadKmlData(ref _kmlString);
             }
             else
             {
-                MessageBox.Show("File doesn't exist");
+                MessageBox.Show("Error loading KML file");
             }
-
         }
 
         [DllImport("user32")]
@@ -150,6 +156,20 @@ namespace cartographer
             {
                 process.Kill();
             }
+
+        }
+
+        private void convertData_Click(object sender, EventArgs e)
+        {
+            ElectorateImporter g_elecImporter = new ElectorateImporter();
+            g_elecImporter.ParseXLS();
+            g_elecImporter.ParseMID("data/QLD_Federal_Electoral_Boundaries.mid");
+            g_elecImporter.ParseMIF("data/QLD_Federal_Electoral_Boundaries.mif");
+            m_Electorates = g_elecImporter.MergeData();
+            Exporter m_exporter = new Exporter(m_Electorates);
+            m_exporter.convertToKml();
+            MessageBox.Show("Created KML File from XLS and MID/MIF Data");
+
 
         }
 
