@@ -154,7 +154,6 @@ namespace cartographer
             m_exporter.convertToKml();
             MessageBox.Show("Created KML File from XLS and MID/MIF Data");
 
-
         }
 
         private void exit_Click(object sender, EventArgs e)
