@@ -230,7 +230,6 @@ namespace cartographer
             OleDbDataAdapter _allData = new OleDbDataAdapter("SELECT * FROM [2004 Election$]", connection);
             DataSet ds = new DataSet();
             _allData.Fill(ds);
-            Console.Out.WriteLine("fuck");
             var table = ds.Tables[0];
             int i = 1;
             foreach (DataRow row in table.Rows)

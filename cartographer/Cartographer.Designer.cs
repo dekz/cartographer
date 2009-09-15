@@ -30,6 +30,7 @@
         {
             this.loadKML = new System.Windows.Forms.Button();
             this.convertData = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loadKML
@@ -52,11 +53,22 @@
             this.convertData.UseVisualStyleBackColor = true;
             this.convertData.Click += new System.EventHandler(this.convertData_Click);
             // 
+            // exit
+            // 
+            this.exit.Location = new System.Drawing.Point(797, 116);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(168, 23);
+            this.exit.TabIndex = 3;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // Cartographer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 524);
+            this.Controls.Add(this.exit);
             this.Controls.Add(this.convertData);
             this.Controls.Add(this.loadKML);
             this.Name = "Cartographer";
@@ -70,6 +82,7 @@
 
         private System.Windows.Forms.Button loadKML;
         private System.Windows.Forms.Button convertData;
+        private System.Windows.Forms.Button exit;
 
     }
 }

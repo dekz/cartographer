@@ -112,24 +112,7 @@ namespace cartographer
                 _textFile = _fDialog.FileName.ToString();
             }
 
-
-
-            string _kmlString = "";
-            StreamReader sr = File.OpenText(_textFile);
-            string _textString;
-            while ((_textString = sr.ReadLine()) != null)
-            {
-                _kmlString += _textString;
-            }
-
-            if ((_kmlString != null) && (_kmlString.Length > 0))
-            {   
-                ge.LoadKmlData(ref _kmlString);
-            }
-            else
-            {
-                MessageBox.Show("Error loading KML file");
-            }
+            ge.OpenKmlFile(_textFile, 1);
         }
 
         [DllImport("user32")]
@@ -170,6 +153,13 @@ namespace cartographer
             m_exporter.convertToKml();
             MessageBox.Show("Created KML File from XLS and MID/MIF Data");
 
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+           
+            Application.Exit();
 
         }
 
